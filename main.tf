@@ -20,4 +20,12 @@ resource "aws_instance" "hello-terraform" {
   tags = {
     Name = "Hello Terraform"
   }
+
+  # Nginx
+  user_data = <<-EOF
+              #!/bin/bash
+              yum install -y nginx
+              systemctl start nginx
+              systemctl enable nginx
+              EOF
 }
