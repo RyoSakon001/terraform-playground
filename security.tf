@@ -14,7 +14,7 @@ resource "aws_security_group" "web_sg" {
 resource "aws_security_group_rule" "web_in_http" {
   security_group_id = aws_security_group.web_sg.id
   type              = "ingress"
-  protocol          = "http"
+  protocol          = "tcp"
   from_port         = 80
   to_port           = 80
   cidr_blocks        = ["0.0.0.0/0"]
@@ -23,7 +23,7 @@ resource "aws_security_group_rule" "web_in_http" {
 resource "aws_security_group_rule" "web_in_https" {
   security_group_id = aws_security_group.web_sg.id
   type              = "ingress"
-  protocol          = "https"
+  protocol          = "tcp"
   from_port         = 443
   to_port           = 443
   cidr_blocks        = ["0.0.0.0/0"]
@@ -83,19 +83,19 @@ resource "aws_security_group_rule" "om_in_tcp3000" {
   cidr_blocks        = ["0.0.0.0/0"]
 }
 
-resource "aws_security_group_rule" "om_in_http" {
+resource "aws_security_group_rule" "om_out_http" {
   security_group_id = aws_security_group.om_sg.id
-  type              = "ingress"
-  protocol          = "http"
+  type              = "egress"
+  protocol          = "tcp"
   from_port         = 80
   to_port           = 80
   cidr_blocks        = ["0.0.0.0/0"]
 }
 
-resource "aws_security_group_rule" "om_in_https" {
+resource "aws_security_group_rule" "om_out_https" {
   security_group_id = aws_security_group.om_sg.id
-  type              = "ingress"
-  protocol          = "https"
+  type              = "egress"
+  protocol          = "tcp"
   from_port         = 443
   to_port           = 443
   cidr_blocks        = ["0.0.0.0/0"]
@@ -120,5 +120,5 @@ resource "aws_security_group_rule" "db_in_mysql" {
   protocol          = "tcp"
   from_port         = 3306
   to_port           = 3306
-  cidr_blocks        = ["0.0.0.0/0"]
+  source_security_group_id = aws_security_group.app_sg.id
 }
