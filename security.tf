@@ -17,7 +17,7 @@ resource "aws_security_group_rule" "web_in_http" {
   protocol          = "http"
   from_port         = 80
   to_port           = 80
-  cidr_block        = "0.0.0.0/0"
+  cidr_blocks        = ["0.0.0.0/0"]
 }
 
 resource "aws_security_group_rule" "web_in_https" {
@@ -26,7 +26,7 @@ resource "aws_security_group_rule" "web_in_https" {
   protocol          = "https"
   from_port         = 443
   to_port           = 443
-  cidr_block        = "0.0.0.0/0"
+  cidr_blocks        = ["0.0.0.0/0"]
 }
 
 resource "aws_security_group_rule" "web_out_tcp3000" {
@@ -72,7 +72,7 @@ resource "aws_security_group_rule" "om_in_ssh" {
   protocol          = "tcp"
   from_port         = 22
   to_port           = 22
-  cidr_block        = "0.0.0.0/0"
+  cidr_blocks        = ["0.0.0.0/0"]
 }
 resource "aws_security_group_rule" "om_in_tcp3000" {
   security_group_id = aws_security_group.om_sg.id
@@ -80,7 +80,7 @@ resource "aws_security_group_rule" "om_in_tcp3000" {
   protocol          = "tcp"
   from_port         = 3000
   to_port           = 3000
-  cidr_block        = "0.0.0.0/0"
+  cidr_blocks        = ["0.0.0.0/0"]
 }
 
 resource "aws_security_group_rule" "om_in_http" {
@@ -89,7 +89,7 @@ resource "aws_security_group_rule" "om_in_http" {
   protocol          = "http"
   from_port         = 80
   to_port           = 80
-  cidr_block        = "0.0.0.0/0"
+  cidr_blocks        = ["0.0.0.0/0"]
 }
 
 resource "aws_security_group_rule" "om_in_https" {
@@ -98,7 +98,7 @@ resource "aws_security_group_rule" "om_in_https" {
   protocol          = "https"
   from_port         = 443
   to_port           = 443
-  cidr_block        = "0.0.0.0/0"
+  cidr_blocks        = ["0.0.0.0/0"]
 }
 
 # DB Security Group
@@ -120,5 +120,5 @@ resource "aws_security_group_rule" "db_in_mysql" {
   protocol          = "tcp"
   from_port         = 3306
   to_port           = 3306
-  cidr_block        = "0.0.0.0/0"
+  cidr_blocks        = ["0.0.0.0/0"]
 }
