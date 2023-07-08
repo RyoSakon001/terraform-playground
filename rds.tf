@@ -35,6 +35,8 @@ resource "aws_db_subnet_group" "mysql_standalone_subnet_group" {
 }
 
 # RDS Instance
+# tfstateにDBのパスワードが残ってしまうため、パスワードだけはapply後に手動で変更するのが望ましい。（もしくはアクセス権制御）
+# その際、Lifecycleのignore_changesを使うと良い。
 resource "random_string" "db_password" {
   length  = 16
   special = false
