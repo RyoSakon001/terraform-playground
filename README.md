@@ -11,3 +11,8 @@
 - terraform apply実行
 - aws_db_instanceリソースをコメントアウト
 - terraform apply実行
+
+# SSH Key作成
+```
+$ ssh-keygen -t rsa -b 2048 -f terraform-playground-keypair
+```

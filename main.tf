@@ -20,3 +20,8 @@ variable "project" {
 variable "environment" {
   type = string
 }
+
+variable "public_key_path" {
+  type = string
+
+}
