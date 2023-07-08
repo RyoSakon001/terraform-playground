@@ -73,8 +73,8 @@ resource "aws_db_instance" "mysql_standalone" {
   auto_minor_version_upgrade = false
   # 削除時の設定
   deletion_protection = true
-  skip_final_snapshot = true
-  apply_immediately   = true
+  skip_final_snapshot = false
+  apply_immediately   = false
   # タグ
   tags = {
     Name        = "${var.project}-${var.environment}-mysql-standalone"
