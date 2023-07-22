@@ -6,6 +6,12 @@ terraform {
       version = "~> 3.0"
     }
   }
+  backend "s3" {
+    bucket  = "terraform-playground-tfstate-bucket-rsakon"
+    key     = "terraform-playground-dev.tfstate"
+    region  = "ap-northeast-1"
+    profile = "terraform"
+  }
 }
 
 provider "aws" {
