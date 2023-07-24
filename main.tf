@@ -29,5 +29,8 @@ variable "environment" {
 
 variable "public_key_path" {
   type = string
+}
 
+variable "domain" {
+  type = string
 }
