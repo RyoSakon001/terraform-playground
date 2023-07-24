@@ -28,3 +28,7 @@ variable "public_key_path" {
 variable "domain" {
   type = string
 }
+
+variable "user_name" {
+  type = string
+}
