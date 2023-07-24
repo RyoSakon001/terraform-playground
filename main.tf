@@ -19,6 +19,13 @@ provider "aws" {
   region  = "ap-northeast-1"
 }
 
+# Cloud Front用
+provider "aws" {
+  alias   = "virginia"
+  profile = "terraform"
+  region  = "us-east-1"
+}
+
 variable "project" {
   type = string
 }
