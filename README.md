@@ -16,3 +16,12 @@
 ```
 $ ssh-keygen -t rsa -b 2048 -f terraform-playground-keypair
 ```
+
+# tfstate
+- S3で管理するのが望ましい
+
+# SSL証明書設定
+1. ドメインを取得する
+2. route53のホストゾーンがもつ４つのNSレコードをドメインに適用する
+3. Certificate ManagerのCNAMEレコードのname, valueをドメインに適用する
+4. 実際に証明書を取りに行く
